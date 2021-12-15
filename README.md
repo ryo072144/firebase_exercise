@@ -1,17 +1,23 @@
 # Firebase練習問題１〜３
 
 
-## 第一回
+## 第１回
+### 問１
+main.dartのmain()にFirebaseを初期化するコードを追加してください。
+### 問２
+FirestoreのuserIdドキュメントに入力した名前と年齢をデータとして保存するsetProfile()を完成させてください。
+### 問３
+アプリを起動すると、userIdドキュメントに保存した名前と年齢のデータが、初めからテキストフィールドに入力されるように、プログラムを完成させてください。
+
+## 第２回
+ここでは、簡単なコメント投稿アプリを作ります。
+### 問１
+新しく投稿を追加するaddPost()を完成させてください。投稿はテキストと投稿日時の情報を持ちます。現在の日時は、DataTiem .now()で取得できます。
+### 問２
+StreamBuilderを使って投稿を表示させるプログラムを完成させてください。postCardをリスト化して縦に並べれば大丈夫です。投稿は投稿日時順に並べて、最新の十件のみを取得するようにしてください。
+### 問３
+
+## 第３回
 ### 問１
 ### 問２
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 問３
