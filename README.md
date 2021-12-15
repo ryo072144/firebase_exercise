@@ -1,6 +1,5 @@
-# firebase_tutorial
+# Firebase練習問題１〜３
 
-A new Flutter application.
 
 ## Getting Started
 
