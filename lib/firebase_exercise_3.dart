@@ -16,20 +16,6 @@ class _AuthExerciseState extends State<AuthExercise> {
 
   //問３
   void checkSignInState(){
-    FirebaseAuth.instance
-        .authStateChanges()
-        .listen((User? user) {
-      if (user == null) {
-        setState(() {
-          _isSignedIn = false;
-        });
-      } else {
-        userId = user.uid;//ユーザーIdの取得
-        setState(() {
-          _isSignedIn = true;
-        });
-      }
-    });
   }
 
   @override

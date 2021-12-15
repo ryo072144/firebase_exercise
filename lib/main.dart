@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 import 'firebase_exercise_1.dart';
 import 'firebase_exercise_2.dart';
 
-void main() async{
-
-  //問１: Firebaseの機能を利用する場合は、このコード忘れずに追加しましょう。
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main(){
   runApp(const MyApp());
 }
 

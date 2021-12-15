@@ -13,11 +13,6 @@ class _PostsState extends State<Posts> {
   TextEditingController postEditingController = TextEditingController();
 
   void addPost()async{
-    //問１
-    await FirebaseFirestore.instance.collection('posts').add({
-      'text': postEditingController.text,
-      'date': DateTime.now().toString()
-    });
     postEditingController.clear();
   }
 
@@ -30,20 +25,8 @@ class _PostsState extends State<Posts> {
 
           //問２
           StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection('posts').orderBy('date').limit(10).snapshots(),//日付順で並べた10のドキュメント
+              stream:
               builder: (context, snapshot){
-                if(snapshot.hasData){
-                  List<DocumentSnapshot> postsData = snapshot.data!.docs;//nullチェックをして読み込んだデータをリストに保存
-                  return Expanded(
-                    child: ListView.builder(
-                        itemCount: postsData.length,
-                        itemBuilder: (context, index){
-                          Map<String, dynamic> postData = postsData[index].data() as Map<String, dynamic>;//データをMap<String, dynamic>型に変換
-                          return postCard(postData);
-                        }
-                    ),
-                  );
-                }
                 return const Center(child: CircularProgressIndicator(),);
               }
           ),

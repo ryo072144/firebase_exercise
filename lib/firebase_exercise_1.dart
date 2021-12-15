@@ -18,15 +18,6 @@ class _FireStoreExerciseState extends State<FireStoreExercise> {
   int age = 0;
 
   void setProfile() async{
-    //問２
-    name = nameEditingController.text;
-    age = int.parse(ageEditingController.text);
-    await FirebaseFirestore.instance.collection('users').doc(widget.userId).set(
-      {
-        'name': name,
-        'age': age
-      }
-    );
   }
 
   @override
@@ -37,9 +28,8 @@ class _FireStoreExerciseState extends State<FireStoreExercise> {
         future: FirebaseFirestore.instance.collection('users').doc(widget.userId).get(),
         builder: (context, snapshot) {
           if(snapshot.hasData&&snapshot.data!.exists){
-            Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-            name = data['name'];
-            age = data['age'];
+
+            //テキストフィールドに初期値を与えている
             nameEditingController = TextEditingController(text: name);
             ageEditingController = TextEditingController(text: age.toString());
             return Center(

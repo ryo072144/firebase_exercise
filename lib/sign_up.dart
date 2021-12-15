@@ -18,10 +18,7 @@ class _SignUpState extends State<SignUp> {
   //問１
   void handleSignUp()async{
     try{
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailEditingController.text,
-          password: passwordEditingController.text
-      );
+
     }on FirebaseAuthException catch(e){
       if (e.code == 'email-already-in-use') {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -29,54 +26,12 @@ class _SignUpState extends State<SignUp> {
           backgroundColor: Colors.red,
           duration: Duration(seconds: 2),
         ));
-
-      } else if (e.code == 'weak-password') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('パスワードは最低でも６文字必要です'),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
-        ));
-
-      }else if(e.code=='invalid-email'){
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('メールアドレスが正しくありません'),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
-        ));
       }
     }
   }
 
-  //問２
   void handleSignIn()async{
-    try{
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailEditingController.text,
-          password: passwordEditingController.text
-      );
-    }on FirebaseAuthException catch(e){
-      if (e.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('登録されていないメールアドレスです'),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
-        ));
 
-      } else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('パスワードが違います'),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
-        ));
-
-      }else if(e.code=='invalid-email'){
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('メールアドレスが正しくありません'),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
-        ));
-      }
-    }
   }
 
   @override
