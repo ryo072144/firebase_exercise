@@ -27,6 +27,21 @@ class _PostsState extends State<Posts> {
           StreamBuilder<QuerySnapshot>(
               stream:
               builder: (context, snapshot){
+                if(snapshot.hasData){
+                  List<DocumentSnapshot> postsData;
+              
+                  //ListViewは大きさの指定が無いので、Columnなどに入れると、無限に広がってしまいエラーとなる。
+                  //このようにExpandedで囲い、自動で大きさを合わせるか、SizedBoxやContainerなどで囲い、大きさを指定するかしなければいけない。
+                  return Expanded(
+                    child: ListView.builder(
+                        itemCount: postsData.length,
+                        itemBuilder: (context, index){
+                          Map<String, dynamic> postData;
+                          return postCard(postData);
+                        }
+                    ),
+                  );
+                }
                 return const Center(child: CircularProgressIndicator(),);
               }
           ),
